@@ -1,5 +1,4 @@
 package sumativa_4;
-import java.time.LocalDate;
 
 public class Automovil {
 
@@ -14,22 +13,24 @@ public class Automovil {
 	
 	// métodos constructores
 	
-	public Automovil(String patente, String marca, String modelo, int anio) {
-		if (validarPatente(patente) == true) {
-			this.patente = patente.toUpperCase();
-			this.anio = anio;
-		 	this.marca = marca.toUpperCase();
-			this.modelo = modelo.toUpperCase();
-			this.condicion = 'D';
-		} 
+	public Automovil(String patente, String marca, String modelo, int anio) throws DatoInvalidoException{
+		if (validarPatente(patente) == false) {
+			throw new DatoInvalidoException("La Patente no cumple con el formato (Largo 8)");
+		}
+		this.patente = patente.toUpperCase();
+		this.anio = anio;
+		this.marca = marca.toUpperCase();
+		this.modelo = modelo.toUpperCase();
+		this.condicion = 'D';	
 	}
 		
 	// setters
 	
-	public void setPatente(String nPatente) {
-		if (validarPatente(nPatente) == true) {
-			this.patente = nPatente.toUpperCase();
-		} 
+	public void setPatente(String nPatente) throws DatoInvalidoException{
+		if (validarPatente(patente) == false) {
+			throw new DatoInvalidoException("La Patente no cumple con el formato (Largo 8)");
+		}
+		this.patente = nPatente.toUpperCase();
 	}
 	public void setMarca(String nMarca) {
 		this.marca = nMarca.toUpperCase();
@@ -39,7 +40,6 @@ public class Automovil {
 	}
 	public void setAnio(int nAnio) {
 		 this.anio = nAnio;
-		|
 	}
 	public void setCondicion(char nCondicion) {
 		if (validarCondicion(nCondicion) == true) {
@@ -71,27 +71,24 @@ public class Automovil {
 		return "Automovil: [Patente: " + getPatente() + ", Marca: " + getMarca() + ", Modelo: " + getModelo() + 
 				", Año: " + getAnio() + ", Condición: " + getCondicion() +"]"; 	
 	}
-	// Metodo para mostrar mensajes
-	public void mostrarMensaje(String nMensaje) {
-		System.out.println(nMensaje);
-	}
+	
 	// customers
-	public void asignarMantencion() {
-	if (getCondicion() == 'D') {
-			setCondicion('M');
-		} else {
-			mostrarMensaje("El automovil no se encuentra disponible");//El automovil no se encuentra disponible
-		}
+	public boolean asignarArriendo() {
+	if (getCondicion() == 'A') {
+		return false;
 	}
+	setCondicion('A');
+	return true;	
+	}
+	
 	// validaciones
 	
 	public boolean validarPatente(String Patente) {
-		if (Patente.length() == 8) {
-			return true;
-		} else {
-			mostrarMensaje("La Patente no cumple con el formato (Largo 8)");
+		if (Patente.length() != 8) {
 			return false;
 		}
+		return true;
+		
 	}
 	
 	public boolean validarCondicion(char condicion) {
@@ -99,7 +96,6 @@ public class Automovil {
 		if (condicion == 'D' || condicion == 'A' || condicion == 'M') {
 			return true;
 		} else {
-			mostrarMensaje("La condición debe ser 'D' o 'A' o 'M'");
 			return false;
 		}
 	}
