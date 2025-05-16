@@ -42,5 +42,7 @@ public class Arriendo {
 		return "Arriendo [número:" + numArriendo + ", fecha:" + fecArr + ", dias de arriendo:" + diasArriendo + "]";
 	}
 	
-	// Métodos customers
+	
+	
+	
 }
