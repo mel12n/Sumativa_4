@@ -31,6 +31,7 @@ public class Interface_Principal extends JFrame {
 	/**
 	 * Create the frame.
 	 */
+	//////
 	public Interface_Principal() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 796, 514);
@@ -39,5 +40,4 @@ public class Interface_Principal extends JFrame {
 
 		setContentPane(contentPane);
 	}
-
 }
