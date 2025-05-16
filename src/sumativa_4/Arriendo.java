@@ -16,20 +16,6 @@ public class Arriendo {
 		this.precioDia = pPrecioDia ; 
 	}
 	
-	// Getters
-	public int getNumArriendo() {
-		return numArriendo;
-	}
-	public String getFecArr() {
-		return fechaArriendo;
-	}
-	public int getDiasArriendo() {
-		return diasArriendo;
-	}
-	public int getPrecioDia() {
-		return precioDia;
-	}
-	
 	// Setters
 	public void setNumArriendo(int pNumArriendo) {
 		this.numArriendo = pNumArriendo;
@@ -44,10 +30,24 @@ public class Arriendo {
 		this.precioDia = pPrecioDia;
 	}
 	
+	// Getters
+	public int getNumArriendo() {
+		return numArriendo;
+	}
+	public String getFechaArriendo() {
+		return fechaArriendo;
+	}
+	public int getDiasArriendo() {
+		return diasArriendo;
+	}
+	public int getPrecioDia() {
+		return precioDia;
+	}
+	
 	// Método toString
 	@Override
 	public String toString() {
-		return "Arriendo [número:" + numArriendo + ", fecha:" + fechaArriendo + ", dias de arriendo:" + diasArriendo + "]";
+		return "Arriendo [número:" + getNumArriendo() + ", fecha:" + getFechaArriendo() + ", dias de arriendo:" + getDiasArriendo() + ", precio por día:" + getPrecioDia() + "]";
 	}
 	
 	// Métodos customer
