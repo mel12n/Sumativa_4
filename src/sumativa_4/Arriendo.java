@@ -4,14 +4,14 @@ public class Arriendo {
 	
 	// Atributos
 	private int numArriendo;
-	private String fecArr; // fecha de arriendo
+	private String fechaArriendo; // fecha de arriendo
 	private int diasArriendo;
 	private int precioDia;
 	
 	// Constructor
 	public Arriendo(int pNumArriendo, String pFecArr, int pDiasArriendo, int pPrecioDia) {
 		this.numArriendo = pNumArriendo;
-		this.fecArr = pFecArr;
+		this.fechaArriendo = pFecArr;
 		this.diasArriendo = pDiasArriendo;
 		this.precioDia = pPrecioDia ; 
 	}
@@ -21,7 +21,7 @@ public class Arriendo {
 		return numArriendo;
 	}
 	public String getFecArr() {
-		return fecArr;
+		return fechaArriendo;
 	}
 	public int getDiasArriendo() {
 		return diasArriendo;
@@ -35,7 +35,7 @@ public class Arriendo {
 		this.numArriendo = pNumArriendo;
 	}
 	public void setFecArr(String pFecArr) {
-		this.fecArr = pFecArr;
+		this.fechaArriendo = pFecArr;
 	}
 	public void setDiasArriendo(int pDiasArriendo) {
 		this.diasArriendo = pDiasArriendo;
@@ -47,7 +47,7 @@ public class Arriendo {
 	// Método toString
 	@Override
 	public String toString() {
-		return "Arriendo [número:" + numArriendo + ", fecha:" + fecArr + ", dias de arriendo:" + diasArriendo + "]";
+		return "Arriendo [número:" + numArriendo + ", fecha:" + fechaArriendo + ", dias de arriendo:" + diasArriendo + "]";
 	}
 	
 	// Métodos customer
