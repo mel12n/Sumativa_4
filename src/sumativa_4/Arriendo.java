@@ -6,14 +6,16 @@ public class Arriendo {
 	private int numArriendo;
 	private String fechaArriendo; // fecha de arriendo
 	private int diasArriendo;
-	private int precioDia;
-	
+	private Cliente cliente;
+	private Automovil automovil;
+		
 	// Constructor
-	public Arriendo(int pNumArriendo, String pFecArr, int pDiasArriendo, int pPrecioDia) {
+	public Arriendo(int pNumArriendo, String pFecArr, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil) {
 		this.numArriendo = pNumArriendo;
 		this.fechaArriendo = pFecArr;
-		this.diasArriendo = pDiasArriendo;
-		this.precioDia = pPrecioDia ; 
+		this.diasArriendo = pDiasArriendo; 
+		this.cliente = pCliente;
+		this.automovil = pAutomovil;
 	}
 	
 	// Setters
@@ -26,33 +28,40 @@ public class Arriendo {
 	public void setDiasArriendo(int pDiasArriendo) {
 		this.diasArriendo = pDiasArriendo;
 	}
-	public void setPrecioDia(int pPrecioDia) {
-		this.precioDia = pPrecioDia;
+	public void setCliente(Cliente pCliente) {
+		this.cliente = pCliente;
 	}
+	public void setAutomovil(Automovil pAutomovil) {
+		this.automovil = pAutomovil;
+	}
+	
 	
 	// Getters
 	public int getNumArriendo() {
-		return numArriendo;
+		return this.numArriendo;
 	}
 	public String getFechaArriendo() {
-		return fechaArriendo;
+		return this.fechaArriendo;
 	}
 	public int getDiasArriendo() {
-		return diasArriendo;
+		return this.diasArriendo;
 	}
-	public int getPrecioDia() {
-		return precioDia;
+	public Cliente getCliente() {
+		return this.cliente;
 	}
-	
+	public Automovil getAutomovil() {
+		return this.automovil;
+	}
+
 	// Método toString
 	@Override
 	public String toString() {
-		return "Arriendo [número:" + getNumArriendo() + ", fecha:" + getFechaArriendo() + ", dias de arriendo:" + getDiasArriendo() + ", precio por día:" + getPrecioDia() + "]";
+		return "Arriendo [número:" + getNumArriendo() + ", fecha:" + getFechaArriendo() + ", dias de arriendo:" + getDiasArriendo() + ", cliente: " + cliente.getCedula() + ", automovil: " + automovil.getPatente() + "]";
 	}
 	
 	// Métodos customer
-	public int obtenerMontoApagar() { //revisar
-		int montoApagar = getPrecioDia() * getDiasArriendo();
+	public int obtenerMontoApagar(int precioDia) { // recibe el precio dia desde la interfaz
+		int montoApagar = precioDia * getDiasArriendo();
 		return montoApagar;
 	}
 	

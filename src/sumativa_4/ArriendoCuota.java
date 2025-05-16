@@ -1,19 +1,26 @@
 package sumativa_4;
 
+import java.util.ArrayList;
+
 public class ArriendoCuota extends Arriendo {
 	
 	// atributos
 	private int cantidadCuotas;
+	private ArrayList<CuotaArriendo> cuotas; // en que casos es Final?
 	
 	// constructor
-	public ArriendoCuota(int pNumArriendo, String pFecArr, int pDiasArriendo, int pPrecioDia, int pCantidadCuotas) {
-		super(pNumArriendo, pFecArr, pDiasArriendo, pPrecioDia);
+	
+	public ArriendoCuota(int pNumArriendo, String pFecArr, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil, int pCantidadCuotas) {
+		super(pNumArriendo, pFecArr, pDiasArriendo, pCliente, pAutomovil);
 		this.cantidadCuotas = pCantidadCuotas;
 	}
-	
+		
 	// getters
 	public int getCantidadCuotas() {
-		return cantidadCuotas;
+		return this.cantidadCuotas;
+	}
+	public ArrayList<CuotaArriendo> getCuotas() {
+		return this.cuotas;
 	}
 	
 	// setters
@@ -26,6 +33,31 @@ public class ArriendoCuota extends Arriendo {
 	@Override
 	public String toString() {
 		return super.toString() + ", cantidad de cuotas: " + getCantidadCuotas(); 
+	}
+	
+	// métodos customer
+	
+	public ArrayList<CuotaArriendo> generarCuotas(int precioDia) { // recibe el monto del precio dia desde la interfaz
+		ArrayList<CuotaArriendo> cuotas = new ArrayList<CuotaArriendo>();
+		int montoCuota = montoArriendo / getCantidadCuotas();
+		for (int i = 0; i < getCantidadCuotas(); i++) {
+			CuotaArriendo cuota = new CuotaArriendo(i + 1, montoCuota);
+			cuotas.add(cuota);
+		}
+		
+		return cuotas;
+	}
+	
+	public boolean ingresarArriendoConCuota() {
+		if (evaluarArriendo(Cliente.getVigencia(), Automovil.getCondicion()) {
+			// se puede ingresar el arriendo
+			return true;
+		} else {
+			// no se puede ingresar el arriendo
+			return false;
+			
+		}
+		
 	}
 
 }
