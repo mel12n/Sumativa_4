@@ -37,7 +37,7 @@ public class ArriendoCuota extends Arriendo {
 	
 	// métodos customer
 	
-	public ArrayList<CuotaArriendo> generarCuotas(int precioDia) { // recibe el monto del precio dia desde la interfaz
+	public ArrayList<CuotaArriendo> generarCuotas(int precioDia) { // revisar
 		ArrayList<CuotaArriendo> cuotas = new ArrayList<CuotaArriendo>();
 		int montoArriendo = obtenerMontoApagar(precioDia); // recibe el monto del precio dia desde la interfaz
 		int montoCuota = montoArriendo / getCantidadCuotas();
@@ -45,11 +45,10 @@ public class ArriendoCuota extends Arriendo {
 			CuotaArriendo cuota = new CuotaArriendo(i + 1, montoCuota);
 			cuotas.add(cuota);
 		}
-		
 		return cuotas;
 	}
 	
-		public boolean ingresarArriendoConCuota(int precioDia, Cliente clienteAtrib, Automovil automovilAtrib) {
+	public boolean ingresarArriendoConCuota(int precioDia, Cliente clienteAtrib, Automovil automovilAtrib) {
 		if (evaluarArriendo(clienteAtrib, automovilAtrib) == true) {
 			automovilAtrib.setCondicion('A'); // Cambia la condicion del automovil a Arrendado
 			generarCuotas(precioDia); // Revisar
@@ -58,20 +57,4 @@ public class ArriendoCuota extends Arriendo {
 			return false;
 		}
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-			
-		
-		
-	
-
 }

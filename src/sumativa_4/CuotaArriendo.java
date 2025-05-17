@@ -4,9 +4,10 @@ public class CuotaArriendo {
 	
 	// Atributos
 	
-	public int numeroCuota;
-	public int valorCuota;
-	public boolean pagada;
+	private int numeroCuota;
+	private int valorCuota;
+	private boolean pagada;
+	private ArriendoCuota arriendoCuota;
 	
 	// Constructor
 	public CuotaArriendo(int pNumeroCuota, int pValorCuota) {
@@ -45,11 +46,12 @@ public class CuotaArriendo {
 	
 	// Métodos customer
 	public boolean pagarCuota() {
-		if (cuotas.contains(getNumeroCuota())) {
-			setPagada(true);
-			return true;
-		} else {
-			return false;
+		for (int i = 0; i < arriendoCuota.getCuotas().size(); i++) {
+			if (arriendoCuota.getCuotas().get(i).getNumeroCuota() == getNumeroCuota()) {
+				setPagada(true);
+				return true;
+				}
 		}
+		return false;
 	}
 }
