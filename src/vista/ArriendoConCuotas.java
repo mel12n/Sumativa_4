@@ -117,3 +117,4 @@ public class ArriendoConCuotas extends JPanel {
     }
 }
 
+
