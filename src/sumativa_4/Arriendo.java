@@ -4,10 +4,10 @@ public class Arriendo {
 	
 	// Atributos
 	private int numArriendo;
-	private String fechaArriendo; // fecha de arriendo
+	private String fechaArriendo; 
 	private int diasArriendo;
-	private Cliente cliente;
-	private Automovil automovil;
+	private Cliente cliente; 
+	private Automovil automovil; 
 		
 	// Constructor
 	public Arriendo(int pNumArriendo, String pFecArr, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil) {
@@ -65,7 +65,8 @@ public class Arriendo {
 		return montoApagar;
 	}
 	
-	public boolean evaluarArriendo(Cliente clienteAtrib, Automovil automovilAtrib) {
+	public boolean evaluarArriendo(Cliente clienteAtrib, Automovil automovilAtrib) { // Agregar atributos de la clase cliente y automovil para validar el arriendo
+		
 		if (clienteAtrib.getVigencia() == true && automovilAtrib.getCondicion() == 'D') {
 			return true;
 		} 
