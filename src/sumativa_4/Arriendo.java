@@ -10,9 +10,9 @@ public class Arriendo {
 	private Automovil automovil; 
 		
 	// Constructor
-	public Arriendo(int pNumArriendo, String pFecArr, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil) {
+	public Arriendo(int pNumArriendo, String pFechaArriendo, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil) {
 		this.numArriendo = pNumArriendo;
-		this.fechaArriendo = pFecArr;
+		this.fechaArriendo = pFechaArriendo;
 		this.diasArriendo = pDiasArriendo; 
 		this.cliente = pCliente;
 		this.automovil = pAutomovil;
@@ -22,8 +22,8 @@ public class Arriendo {
 	public void setNumArriendo(int pNumArriendo) {
 		this.numArriendo = pNumArriendo;
 	}
-	public void setFecArr(String pFecArr) {
-		this.fechaArriendo = pFecArr;
+	public void setFecArr(String pFechaArriendo) {
+		this.fechaArriendo = pFechaArriendo;
 	}
 	public void setDiasArriendo(int pDiasArriendo) {
 		this.diasArriendo = pDiasArriendo;
@@ -34,8 +34,7 @@ public class Arriendo {
 	public void setAutomovil(Automovil pAutomovil) {
 		this.automovil = pAutomovil;
 	}
-	
-	
+		
 	// Getters
 	public int getNumArriendo() {
 		return this.numArriendo;
@@ -71,6 +70,10 @@ public class Arriendo {
 			return true;
 		} 
 		return false;
-	} // Agregar atributos de la clase cliente y automovil para validar el arriendo
+	} 
+	
+	public void mostrarMensaje(String nMensaje) {
+		System.out.println(nMensaje);
+	}
 		
 }
