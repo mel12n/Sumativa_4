@@ -24,7 +24,10 @@ public class ArriendoCuota extends Arriendo {
 	}
 	
 	// setters
-	public void setCantidadCuotas(int pCantidadCuotas) {
+	public void setCantidadCuotas(int pCantidadCuotas) throws DatoInvalidoException {
+		if (pCantidadCuotas <= 0 || pCantidadCuotas > 6) {
+			throw new DatoInvalidoException("Número de cuota inválido. Debe ser entre 1 y 6.");
+		}
 		this.cantidadCuotas = pCantidadCuotas;
 	}
 	
@@ -56,5 +59,8 @@ public class ArriendoCuota extends Arriendo {
 		} else {
 			return false;
 		}
+	}
+	public void mostrarMensaje(String nMensaje) {
+		System.out.println(nMensaje);
 	}
 }

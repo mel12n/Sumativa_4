@@ -70,6 +70,10 @@ public class Arriendo {
 			return true;
 		} 
 		return false;
-	} // Agregar atributos de la clase cliente y automovil para validar el arriendo
+	} 
+	
+	public void mostrarMensaje(String nMensaje) {
+		System.out.println(nMensaje);
+	}
 		
 }
