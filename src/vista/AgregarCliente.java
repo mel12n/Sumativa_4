@@ -3,7 +3,6 @@ package vista;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -68,7 +67,7 @@ public class AgregarCliente extends JPanel {
 		ventana.setVisible(true);
 		ventana.setResizable(false);
 	}
-	
+	//Main para probar la vista AgregarCliente
 	public static void main(String[] args) {
         JFrame ventana = new JFrame("Agregar Cliente");
         AgregarCliente vista = new AgregarCliente();
