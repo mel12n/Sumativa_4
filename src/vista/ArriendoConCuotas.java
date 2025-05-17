@@ -4,7 +4,11 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ArriendoConCuotas extends JPanel {
-    // Componentes visuales
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	// Componentes visuales
     private JComboBox<String> comboClientes, comboAutos;
     private JButton btnNuevoCliente, btnGuardar, btnPagar;
     private JTextField txtFecha, txtDias, txtPrecioDia, txtMontoTotal, txtCuotas;
