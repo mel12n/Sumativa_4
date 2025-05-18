@@ -4,9 +4,11 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
-import vista.Clientes;
 
-import controlador.ControladorVistaClientes;
+
+import vista.InterfacePrincipal;
+import controlador.ControladorInterfacePrincipal;
+
 
 //import controlador.ControladorVistaClientes;
 
@@ -15,28 +17,17 @@ import controlador.ControladorVistaClientes;
 
 public class main {
 
-	//Main para probar la vista AgregarCliente
+		// main vista principal
 		public static void main(String[] args) {
-<<<<<<< HEAD
-	        JFrame ventana = new JFrame("Arriendo con Cuotas");
-	        ArriendoConCuotas vista = new ArriendoConCuotas();
-	        vista.crearGUI(ventana);
-	        ControladorVistaArriendo controlador = new ControladorVistaArriendo(vista);
-	        ventana.setLocationRelativeTo(null); // Centra la ventana
-=======
+
+
+			InterfacePrincipal menu = new InterfacePrincipal();
+			JFrame ventana3 = new JFrame("Menú Principal");
+			menu.crearGUI(ventana3);
 			
-			AbrirDocumento abrirDocumento = new AbrirDocumento(new ArrayList<>(), new ArrayList<>(), new ArrayList<>());
-			abrirDocumento.cargarListaClientes();
-			abrirDocumento.cargarListaArriendos();
-			abrirDocumento.cargarListaAutomoviles();
+			ControladorInterfacePrincipal controlador = new ControladorInterfacePrincipal(menu);
+
 			
-	        			
-			JFrame ventana = new JFrame("Agregar Cliente");
-	        Clientes vistaClientes = new Clientes();
-	        vistaClientes.crearGUI(ventana);
-	        ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes);
-	        ventana.setLocationRelativeTo(null); 
->>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
 		}
 
 }
