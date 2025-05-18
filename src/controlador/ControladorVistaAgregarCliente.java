@@ -12,8 +12,7 @@ import java.util.ArrayList;
 public class ControladorVistaAgregarCliente {
 	// Atributos
 	private Clientes agregarCliente;
-	private Cliente cliente;
-	private ArrayList<Cliente> listaClientes;
+	private ArrayList<Cliente> listaClientes = new ArrayList<>(); // ✅ Inicializada correctamente
 	
 	// Constructor
 	public ControladorVistaAgregarCliente(Clientes pAgregarCliente) {
@@ -22,34 +21,25 @@ public class ControladorVistaAgregarCliente {
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
 			String nombre = agregarCliente.getTxtNombre().getText();
 			String cedula = agregarCliente.getTxtCedula().getText();
-			Cliente cliente = null;
+			
 			try {
-				cliente = new Cliente(cedula, nombre);
+				Cliente cliente = new Cliente(cedula, nombre); // ✅ Evita sombra de variable
+				agregarCliente(cliente); // ✅ Lo agregamos correctamente
+				for (Cliente cli : listaClientes) {
+					System.out.println("Cliente: "+ cli);
+				}
 			} catch (DatoInvalidoException e1) {
-				
-				e1.printStackTrace();
+				e1.printStackTrace(); // Podrías mostrar un JOptionPane aquí
 			}
-			// llamar al método agregarCliente
-			agregarCliente(cliente);
-			for (Cliente cli : listaClientes) {
-				System.out.println("Cliente: "+ cli);
-			}
-			// Mostrar vista ArriendoConCuotas
-					
 		});
-	
 	}
+	
 	public void agregarCliente(Cliente cliente) {
-		ArrayList<Cliente> listaClientes = new ArrayList<Cliente>();
-		listaClientes.add(cliente);
-		// guardar en el archivo
-		try {
-		ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("clientes.dat"));
-		out.writeObject(listaClientes);
-		out.close();
+		listaClientes.add(cliente); // ✅ Ahora sí estás usando la lista global
+		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("clientes.dat"))) {
+			out.writeObject(listaClientes); // ✅ Guarda toda la lista acumulada
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-
 }
