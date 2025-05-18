@@ -18,6 +18,7 @@ public class ControladorInterfacePrincipal {
 
     public ControladorInterfacePrincipal(InterfacePrincipal vista) {
         this.vista = vista;
+        
         AbrirDocumento abrirDocumentos = new AbrirDocumento(null,null,null);
         listaClientes = abrirDocumentos.cargarListaClientes();
         listaArriendos = abrirDocumentos.cargarListaArriendos();
@@ -33,11 +34,13 @@ public class ControladorInterfacePrincipal {
 
         // Botón Clientes
         vista.getBtnClientes().addActionListener(e -> {
-            JFrame ventana = new JFrame("Clientes");
+        	JFrame ventana = new JFrame("Clientes");
             Clientes vistaClientes = new Clientes();
-            vistaClientes.crearGUI(ventana);
-            ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes);
+            vistaClientes.crearGUI(ventana);      
+            ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes, this);
+            
             ventana.setLocationRelativeTo(null);
+            //ventana.setVisible(true); // Para mostrar la ventana
         });
 
         // Botón Autos
@@ -65,10 +68,5 @@ public class ControladorInterfacePrincipal {
     	return listaAutomoviles;
     }
     
-    public static void main(String[] args) {
-        JFrame ventana = new JFrame("Menú Principal");
-        InterfacePrincipal menu = new InterfacePrincipal();
-        menu.crearGUI(ventana);
-        new ControladorInterfacePrincipal(menu);
-    }
+   
 } 
