@@ -4,9 +4,7 @@ import java.awt.*;
 import javax.swing.*;
 
 public class ArriendoConCuotas extends JPanel {
-    /**
-	 * 
-	 */
+    
 	private static final long serialVersionUID = 1L;
 	// Componentes visuales
     private JComboBox<String> comboClientes, comboAutos;
@@ -19,7 +17,7 @@ public class ArriendoConCuotas extends JPanel {
     public ArriendoConCuotas() {
         setLayout(null);
         
-        //Labels
+        
         lblTitulo = new JLabel("ARRIENDOS CON CUOTAS");
         lblTitulo.setBounds(420, 20, 300, 30);
         lblTitulo.setFont(new Font("Arial", Font.BOLD, 18));
