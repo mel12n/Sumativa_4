@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class ControladorVistaAgregarCliente {
 	// Atributos
 	private Clientes agregarCliente;
-	private ArrayList<Cliente> listaClientes = new ArrayList<>(); // ✅ Inicializada correctamente
+	private ArrayList<Cliente> listaClientes = new ArrayList<>();
 	
 	// Constructor
 	public ControladorVistaAgregarCliente(Clientes pAgregarCliente) {
