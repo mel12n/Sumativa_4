@@ -1,8 +1,7 @@
 package controlador;
 
-import vista.AgregarCliente;
+import vista.Clientes;
 import sumativa_4.Cliente;
-
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -10,12 +9,12 @@ import java.util.ArrayList;
 
 public class ControladorVistaAgregarCliente {
 	// Atributos
-	private AgregarCliente agregarCliente;
+	private Clientes agregarCliente;
 	private Cliente cliente;
 	private ArrayList<Cliente> listaClientes;
 	
 	// Constructor
-	public ControladorVistaAgregarCliente(AgregarCliente pAgregarCliente) {
+	public ControladorVistaAgregarCliente(Clientes pAgregarCliente) {
 		this.agregarCliente = pAgregarCliente;
 				
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
@@ -24,6 +23,7 @@ public class ControladorVistaAgregarCliente {
 			Cliente cliente = new Cliente(cedula, nombre);
 			// llamar al método agregarCliente
 			agregarCliente(cliente);
+			// Mostrar vista ArriendoConCuotas
 					
 		});
 	

@@ -9,7 +9,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class AgregarCliente extends JPanel {
+public class Clientes extends JPanel {
 	/**
 	 * 
 	 */
@@ -19,7 +19,7 @@ public class AgregarCliente extends JPanel {
 	private JTextField txtCedula, txtNombre;
 	private JButton btnAgregar;
 	
-	public AgregarCliente() {
+	public Clientes() {
 		setLayout(null);
 		
 		// Labels
@@ -70,7 +70,7 @@ public class AgregarCliente extends JPanel {
 	//Main para probar la vista AgregarCliente
 	public static void main(String[] args) {
         JFrame ventana = new JFrame("Agregar Cliente");
-        AgregarCliente vista = new AgregarCliente();
+        Clientes vista = new Clientes();
         vista.crearGUI(ventana);
     }
 
