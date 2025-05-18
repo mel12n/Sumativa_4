@@ -41,7 +41,7 @@ public class ControladorVistaArriendo {
         	JFrame ventana = new JFrame("Agregar Cliente");
 	        Clientes vistaClientes = new Clientes();
 	        vistaClientes.crearGUI(ventana);
-	        vistaClientes.crearGUI(ventana);
+	        ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes);
 	        ventana.setLocationRelativeTo(null); // Centra la ventana
 	        
         });

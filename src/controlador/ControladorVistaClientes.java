@@ -3,13 +3,9 @@ package controlador;
 import vista.Clientes;
 import sumativa_4.Cliente;
 import sumativa_4.DatoInvalidoException;
+import sumativa_4.GuardarDocumento;
 
 import java.awt.Window;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
@@ -19,17 +15,18 @@ import sumativa_4.AbrirDocumento;
 public class ControladorVistaClientes {
 	// Atributos
 	private Clientes agregarCliente;
-	private AbrirDocumento abrirDocumento;
+	//private AbrirDocumento abrirDocumento;
 	private ArrayList<Cliente> listaClientes;
+	//private GuardarDocumento guardarDocumento;
 	
 	// Constructor
 	public ControladorVistaClientes(Clientes pAgregarCliente) {
 		
 		this.agregarCliente = pAgregarCliente;
 		
-		AbrirDocumento abrirDocumento = new AbrirDocumento(new ArrayList<>(), new ArrayList<>());
-        listaClientes = abrirDocumento.cargarListaClientes();
-		
+		AbrirDocumento abrirDocumento = new AbrirDocumento(null, null, null);
+        listaClientes = abrirDocumento.getListaClientes();
+                    
         // acciones del botón agregar
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
 			String nombre = agregarCliente.getTxtNombre().getText();
@@ -69,27 +66,10 @@ public class ControladorVistaClientes {
 	
 	public void agregarCliente(Cliente cliente) {
 		listaClientes.add(cliente);
-		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("clientes.dat"))) {
-			out.writeObject(listaClientes); 
-			
-			JOptionPane.showMessageDialog(agregarCliente, 
-					"Cliente registrado correctamente.","Guardado", JOptionPane.INFORMATION_MESSAGE);
-		} catch (IOException e) {
-			e.printStackTrace();
-			JOptionPane.showMessageDialog(agregarCliente, 
-					"Error al registrar los datos del cliente.","Error", JOptionPane.ERROR_MESSAGE);
-		}
+		GuardarDocumento guardarDocumento = new GuardarDocumento(null, null, null);
+		guardarDocumento.guardarCliente(listaClientes);
+		
 	}
-	/*
-	// Quizas deberia estar en el main
-	@SuppressWarnings("unchecked")
-	public ArrayList<Cliente> cargarListaClientes() {
-		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("clientes.dat"))) {
-			listaClientes = (ArrayList<Cliente>) in.readObject();
-		} catch (IOException | ClassNotFoundException e) {
-			listaClientes = new ArrayList<>(); // Inicializa lista vacía si el archivo no existe
-		}
-		return listaClientes;
-	}*/
+	
 }
 
