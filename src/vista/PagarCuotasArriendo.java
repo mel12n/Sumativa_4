@@ -91,6 +91,30 @@ public class PagarCuotasArriendo extends JPanel {
         add(btnRealizarPago);
     }
 
+    public JComboBox<String> getCmbClientes() {
+        return cmbClientes;
+    }
+
+    public JList<String> getLstArriendos() {
+        return lstArriendos;
+    }
+
+    public JTable getTblCuotas() {
+        return tblCuotas;
+    }
+
+    public JButton getBtnMostrarPagos() {
+        return btnMostrarPagos;
+    }
+
+    public JButton getBtnRealizarPago() {
+        return btnRealizarPago;
+    }
+
+    public JCheckBox[] getChkSelec() {
+        return chkSelec;
+    }
+
     public void crearGUI(JFrame frame) {
         frame.setTitle("Pagar Cuotas Arriendos");
         frame.setSize(920, 380);
