@@ -1,5 +1,6 @@
 package sumativa_4;
 
+
 public class Cliente {
 
 	// atributos

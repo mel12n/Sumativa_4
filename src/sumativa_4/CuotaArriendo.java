@@ -54,7 +54,5 @@ public class CuotaArriendo {
 		}
 		return false;
 	}
-	public void mostrarMensaje(String nMensaje) {
-		System.out.println(nMensaje);
-	}
+	
 }
