@@ -58,7 +58,7 @@ public class Cliente implements Serializable {
 	
 	public void validarCedula(String Cedula) throws DatoInvalidoException{
 	    if (Cedula.length() != 10) {
-	    	throw new DatoInvalidoException("Error en el Rut: La cédula debe tener 10 caracteres.");
+	    	throw new DatoInvalidoException("Error en el Rut: La cédula debe tener 10 caracteres. Anteponer un 0 si es necesario.");
 	    }
 	    for (int i = 0; i < 8; i++) {
 	        if (!Character.isDigit(Cedula.charAt(i))) {
@@ -67,12 +67,12 @@ public class Cliente implements Serializable {
 	    }
 	    // Verificar si el carácter en la posición 8 es '-'
 	    if (Cedula.charAt(8) != '-') {
-	    	throw new DatoInvalidoException("Error en el Rut: El noveno carácter debe ser un guion.");
+	    	throw new DatoInvalidoException("Error en el Rut: Anteponga un guión al digito verficador.");
 	    }
 	    // Verificar si el carácter en la posición 9 es 'K' o un dígito numérico
 	    	char c = Cedula.charAt(9);
 	    	if (c != 'K' && !Character.isDigit(c)) {
-	    		throw new DatoInvalidoException("Error en el Rut: El último carácter debe ser un número o 'K'.");
+	    		throw new DatoInvalidoException("Error en el Rut: El digito verificador debe ser un número o 'K'.");
 	    	}
 	}
 	       
