@@ -67,13 +67,7 @@ public class Clientes extends JPanel {
 		ventana.setVisible(true);
 		ventana.setResizable(false);
 	}
-	//Main para probar la vista AgregarCliente
-	public static void main(String[] args) {
-        JFrame ventana = new JFrame("Agregar Cliente");
-        Clientes vista = new Clientes();
-        vista.crearGUI(ventana);
-    }
-
+	
 	public JButton getBtnAgregar() {
 		return btnAgregar;
 	}

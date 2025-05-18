@@ -2,6 +2,8 @@ package controlador;
 
 import vista.Clientes;
 import sumativa_4.Cliente;
+import sumativa_4.DatoInvalidoException;
+
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -20,9 +22,18 @@ public class ControladorVistaAgregarCliente {
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
 			String nombre = agregarCliente.getTxtNombre().getText();
 			String cedula = agregarCliente.getTxtCedula().getText();
-			Cliente cliente = new Cliente(cedula, nombre);
+			Cliente cliente = null;
+			try {
+				cliente = new Cliente(cedula, nombre);
+			} catch (DatoInvalidoException e1) {
+				
+				e1.printStackTrace();
+			}
 			// llamar al método agregarCliente
 			agregarCliente(cliente);
+			for (Cliente cli : listaClientes) {
+				System.out.println("Cliente: "+ cli);
+			}
 			// Mostrar vista ArriendoConCuotas
 					
 		});
