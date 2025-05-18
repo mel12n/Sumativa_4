@@ -63,7 +63,7 @@ public class Clientes extends JPanel {
 		this.setBackground(new Color(240, 240, 240));
 		ventana.setLayout(new BorderLayout());
 		ventana.add(this, BorderLayout.CENTER);
-		ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //debe regresar a la ventana anterior
+		ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		ventana.setSize(400, 300);
 		ventana.setVisible(true);
 		ventana.setResizable(false);

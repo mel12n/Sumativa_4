@@ -2,6 +2,7 @@ package vista;
 
 import java.awt.*;
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 
 public class ArriendoConCuotas extends JPanel {
     
@@ -10,7 +11,7 @@ public class ArriendoConCuotas extends JPanel {
     private JComboBox<String> comboClientes, comboAutos;
     private JButton btnNuevoCliente, btnGuardar, btnPagar;
     private JTextField txtFecha, txtDias, txtPrecioDia, txtMontoTotal, txtCuotas;
-    private JLabel lblTitulo, lblFecha, lblDias, lblPrecioDia, lblMonto, lblCuotas;
+    private JLabel lblTitulo, lblFecha, lblDias, lblPrecioDia, lblMonto, lblCuotas, lblFormatoFecha;
     private JTable tablaCuotas;
     private JScrollPane scrollTabla;
 
@@ -26,6 +27,11 @@ public class ArriendoConCuotas extends JPanel {
         lblFecha = new JLabel("Fecha Arriendo:");
         lblFecha.setBounds(80, 170, 120, 25);
         add(lblFecha);
+        
+        lblFormatoFecha = new JLabel("(DD-MM-YYYY)");
+        lblFormatoFecha.setBounds(80, 183, 120, 25);
+        lblFormatoFecha.setFont(new Font("Arial", Font.BOLD, 10));
+        add(lblFormatoFecha);
         
         lblCuotas = new JLabel("Cantidad de cuotas:");
         lblCuotas.setBounds(420, 170, 150, 25);
@@ -84,21 +90,17 @@ public class ArriendoConCuotas extends JPanel {
         btnPagar.setBounds(860, 320, 180, 30);
         add(btnPagar);
 
-        // Tabla de cuotas
+     // Tabla de cuotas
         String[] columnas = {"Número", "Valor", "¿Pagada?"};
-        Object[][] datos = {};
-        tablaCuotas = new JTable(datos, columnas);
+        DefaultTableModel modeloTabla = new DefaultTableModel(null, columnas);
+        tablaCuotas = new JTable(modeloTabla);  // ← usa la variable de instancia
         scrollTabla = new JScrollPane(tablaCuotas);
-        tablaCuotas.getTableHeader().setReorderingAllowed(false); //Desactiva la opción de mover los títulos de la tabla.
-        scrollTabla.setBounds(800, 100, 280, 200); // x,y, tamaño
+        tablaCuotas.getTableHeader().setReorderingAllowed(false);
+        scrollTabla.setBounds(800, 100, 280, 200);
         tablaCuotas.setBackground(Color.WHITE); 
         scrollTabla.getViewport().setBackground(Color.WHITE);
         add(scrollTabla);
 
-        JLabel lblTabla = new JLabel("CUOTAS A PAGAR");
-        lblTabla.setFont(new Font("Arial", Font.BOLD, 14));
-        lblTabla.setBounds(880, 70, 200, 30);
-        add(lblTabla);
    
     }
     public JButton getBtnGuardar() {
@@ -114,6 +116,9 @@ public class ArriendoConCuotas extends JPanel {
 
     public JComboBox<String> getComboClientes() {
         return comboClientes;
+    }
+    public JComboBox<String> getComboAutos() {
+        return comboAutos;
     }
 
     public JTable getTablaCuotas() {
@@ -135,6 +140,10 @@ public class ArriendoConCuotas extends JPanel {
     public JTextField getTxtMontoTotal() {
         return txtMontoTotal;
     }
+    public JTextField getTxtFecha() {
+		return txtFecha;
+	}
+    
 
 
     public void crearGUI(JFrame ventana) {

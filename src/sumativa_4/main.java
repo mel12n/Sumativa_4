@@ -1,33 +1,17 @@
 package sumativa_4;
 
 import javax.swing.JFrame;
-
-import vista.Clientes;
-<<<<<<< HEAD
-import controlador.ControladorVistaClientes;
-=======
-<<<<<<< HEAD
-import controlador.ControladorVistaClientes;
-=======
-import controlador.Controlador;
->>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
->>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
+import vista.ArriendoConCuotas;
+import controlador.ControladorVistaArriendo;
 
 public class main {
 
 	//Main para probar la vista AgregarCliente
 		public static void main(String[] args) {
-	        JFrame ventana = new JFrame("Agregar Cliente");
-	        Clientes vista = new Clientes();
+	        JFrame ventana = new JFrame("Arriendo con Cuotas");
+	        ArriendoConCuotas vista = new ArriendoConCuotas();
 	        vista.crearGUI(ventana);
-<<<<<<< HEAD
-	        new ControladorVistaClientes(vista);
-=======
-<<<<<<< HEAD
-	        new ControladorVistaClientes(vista);
-=======
-	        new Controlador(vista);
->>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
->>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
-	    }
+	        ControladorVistaArriendo controlador = new ControladorVistaArriendo(vista);
+	        
+		}
 }
