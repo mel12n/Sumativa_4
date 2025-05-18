@@ -3,7 +3,15 @@ package sumativa_4;
 import javax.swing.JFrame;
 
 import vista.Clientes;
+<<<<<<< HEAD
 import controlador.ControladorVistaClientes;
+=======
+<<<<<<< HEAD
+import controlador.ControladorVistaClientes;
+=======
+import controlador.Controlador;
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
 
 public class main {
 
@@ -12,8 +20,14 @@ public class main {
 	        JFrame ventana = new JFrame("Agregar Cliente");
 	        Clientes vista = new Clientes();
 	        vista.crearGUI(ventana);
+<<<<<<< HEAD
 	        new ControladorVistaClientes(vista);
+=======
+<<<<<<< HEAD
+	        new ControladorVistaClientes(vista);
+=======
+	        new Controlador(vista);
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
 	    }
-
-
 }

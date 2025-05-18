@@ -41,7 +41,8 @@ public class Clientes extends JPanel {
         lblVigente.setBounds(130, 130, 80, 25);
         add(lblVigente);
         //Label Estado
-        lblEstado = new JLabel("True");//Asignar luego estado en el controlador
+        lblEstado = new JLabel("True");
+        //setLblEstado(new JLabel("True"));//Asignar luego estado en el controlador
         lblEstado.setBounds(200, 130, 40, 25);
         add(lblEstado);
         //Cuadro de texto Cédula
@@ -90,5 +91,13 @@ public class Clientes extends JPanel {
 
 	public void setTxtCedula(JTextField txtCedula) {
 		this.txtCedula = txtCedula;
+	}
+
+	public JLabel getLblEstado() {
+		return lblEstado;
+	}
+
+	public void setLblEstado(JLabel lblEstado) {
+		this.lblEstado = lblEstado;
 	}
 }
