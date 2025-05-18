@@ -68,14 +68,17 @@ public class ArriendoConCuotas extends JPanel {
         txtMontoTotal = new JTextField();
         txtMontoTotal.setBounds(200, 290, 100, 25);
         txtMontoTotal.setEditable(false);
+        txtMontoTotal.setText("$0");
         add(txtMontoTotal);
 
         comboClientes = new JComboBox<>(new String[]{"Seleccione CLIENTE"});
         comboClientes.setBounds(100, 70, 250, 30);
+        comboClientes.setBackground(Color.WHITE);
         add(comboClientes);
         
         comboAutos = new JComboBox<>(new String[]{"Seleccione AUTOMOVIL"});
         comboAutos.setBounds(420, 70, 250, 30);
+        comboClientes.setBackground(Color.WHITE);
         add(comboAutos);
 
         btnNuevoCliente = new JButton("Ingresar nuevo Cliente");
@@ -150,7 +153,7 @@ public class ArriendoConCuotas extends JPanel {
         this.setBackground(new Color(240, 240, 240));
         ventana.setLayout(new BorderLayout());
         ventana.add(this, BorderLayout.CENTER);
-        ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        ventana.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         ventana.setVisible(true);
         ventana.setSize(1120, 420);
         ventana.setResizable(false);

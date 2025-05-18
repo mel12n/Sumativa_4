@@ -12,6 +12,6 @@ public class main {
 	        ArriendoConCuotas vista = new ArriendoConCuotas();
 	        vista.crearGUI(ventana);
 	        ControladorVistaArriendo controlador = new ControladorVistaArriendo(vista);
-	        
+	        ventana.setLocationRelativeTo(null); // Centra la ventana
 		}
 }

@@ -22,9 +22,7 @@ public class ControladorVistaArriendo {
 
     public ControladorVistaArriendo(ArriendoConCuotas vista) {
         this.vista = vista;
-        this.listaClientes = new ArrayList<>();
-        this.listaArriendos = new ArrayList<>();
-        this.listaAutomoviles = new ArrayList<>();
+        
 
         //Acá cargar clientes, vehiculos y arriendos
         
@@ -41,7 +39,7 @@ public class ControladorVistaArriendo {
         	JFrame ventana = new JFrame("Agregar Cliente");
 	        Clientes vistaClientes = new Clientes();
 	        vistaClientes.crearGUI(ventana);
-	        vistaClientes.crearGUI(ventana);
+	        ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes);
 	        ventana.setLocationRelativeTo(null); // Centra la ventana
 	        
         });
@@ -109,9 +107,9 @@ public class ControladorVistaArriendo {
             int dias = Integer.parseInt(vista.getTxtDias().getText());
             int precio = Integer.parseInt(vista.getTxtPrecioDia().getText());
             int monto = dias * precio;
-            vista.getTxtMontoTotal().setText(String.valueOf(monto));
+            vista.getTxtMontoTotal().setText(String.valueOf("$" + monto));
         } catch (NumberFormatException e) {
-            vista.getTxtMontoTotal().setText(""); // limpia si hay datos inválidos
+            vista.getTxtMontoTotal().setText("$0"); // limpia si hay datos inválidos
         }
     }
 
