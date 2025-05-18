@@ -45,17 +45,17 @@ public class AgregarCliente extends JPanel {
         lblEstado.setBounds(200, 130, 40, 25);
         add(lblEstado);
         //Cuadro de texto Cédula
-        txtCedula = new JTextField();
-        txtCedula.setBounds(100, 50, 150, 25);
-        add(txtCedula);
+        setTxtCedula(new JTextField());
+        getTxtCedula().setBounds(100, 50, 150, 25);
+        add(getTxtCedula());
         //Cuadro de texto Nombre
-        txtNombre = new JTextField();
-        txtNombre.setBounds(100, 90, 200, 25);
-        add(txtNombre);
+        setTxtNombre(new JTextField());
+        getTxtNombre().setBounds(100, 90, 200, 25);
+        add(getTxtNombre());
         //Botón Agregar
-        btnAgregar = new JButton("Agregar");
-        btnAgregar.setBounds(210, 200, 100, 25);
-        add(btnAgregar);
+        setBtnAgregar(new JButton("Agregar"));
+        getBtnAgregar().setBounds(210, 200, 100, 25);
+        add(getBtnAgregar());
 	}
 	
 	public void crearGUI(JFrame ventana) {
@@ -73,4 +73,28 @@ public class AgregarCliente extends JPanel {
         AgregarCliente vista = new AgregarCliente();
         vista.crearGUI(ventana);
     }
+
+	public JButton getBtnAgregar() {
+		return btnAgregar;
+	}
+
+	public void setBtnAgregar(JButton btnAgregar) {
+		this.btnAgregar = btnAgregar;
+	}
+
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtCedula() {
+		return txtCedula;
+	}
+
+	public void setTxtCedula(JTextField txtCedula) {
+		this.txtCedula = txtCedula;
+	}
 }
