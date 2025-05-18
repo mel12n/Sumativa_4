@@ -15,9 +15,6 @@ public class ControladorVistaArriendo {
 	private ArriendoCuota arriendoCuota;
 	private Automovil automovil;
     private ArriendoConCuotas vista;
-    private ArrayList<Cliente> listaClientes;
-    private ArrayList<ArriendoCuota> listaArriendos;
-    private ArrayList<Automovil> listaAutomoviles;
     
 
     public ControladorVistaArriendo(ArriendoConCuotas vista) {

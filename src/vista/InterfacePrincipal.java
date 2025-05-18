@@ -6,7 +6,7 @@ import java.awt.*;
 public class InterfacePrincipal extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JButton btnArriendos, btnClientes, btnAutos;
+    private JButton btnArriendos, btnClientes, btnAutos, btnVehiculos;
     private JLabel lblTitulo;
 
     public InterfacePrincipal() {
@@ -25,17 +25,23 @@ public class InterfacePrincipal extends JPanel {
         btnArriendos.setBounds(380, 120, 250, 50);
         add(btnArriendos);
 
+        // Botón Autos
+        btnAutos = new JButton("Pagar Cuotas de Arriendo");
+        btnAutos.setFont(new Font("Arial", Font.PLAIN, 16));
+        btnAutos.setBounds(380, 200, 250, 50);
+        add(btnAutos);
+
         // Botón Clientes
-        btnClientes = new JButton("Gestionar Clientes");
+        btnClientes = new JButton("Agregar Clientes");
         btnClientes.setFont(new Font("Arial", Font.PLAIN, 16));
-        btnClientes.setBounds(380, 200, 250, 50);
+        btnClientes.setBounds(380, 280, 250, 50);
         add(btnClientes);
 
-        // Botón Autos
-        btnAutos = new JButton("Gestionar Automóviles");
-        btnAutos.setFont(new Font("Arial", Font.PLAIN, 16));
-        btnAutos.setBounds(380, 280, 250, 50);
-        add(btnAutos);
+        // Botón Vehículos
+        btnVehiculos = new JButton("Agregar Vehículos");
+        btnVehiculos.setFont(new Font("Arial", Font.PLAIN, 16));
+        btnVehiculos.setBounds(380, 360, 250, 50);
+        add(btnVehiculos);
     }
 
     public JButton getBtnArriendos() {
@@ -48,6 +54,10 @@ public class InterfacePrincipal extends JPanel {
 
     public JButton getBtnAutos() {
         return btnAutos;
+    }
+
+    public JButton getBtnVehiculos() {
+        return btnVehiculos;
     }
 
     public void crearGUI(JFrame ventana) {
