@@ -101,6 +101,41 @@ public class ArriendoConCuotas extends JPanel {
         add(lblTabla);
    
     }
+    public JButton getBtnGuardar() {
+        return btnGuardar;
+    }
+    public JButton getBtnPagar() {
+        return btnPagar;
+    }
+
+    public JButton getBtnNuevoCliente() {
+        return btnNuevoCliente;
+    }
+
+    public JComboBox<String> getComboClientes() {
+        return comboClientes;
+    }
+
+    public JTable getTablaCuotas() {
+        return tablaCuotas;
+    }
+
+    public JTextField getTxtDias() {
+        return txtDias;
+    }
+
+    public JTextField getTxtPrecioDia() {
+        return txtPrecioDia;
+    }
+
+    public JTextField getTxtCuotas() {
+        return txtCuotas;
+    }
+
+    public JTextField getTxtMontoTotal() {
+        return txtMontoTotal;
+    }
+
 
     public void crearGUI(JFrame ventana) {
         this.setBackground(new Color(240, 240, 240));
@@ -108,7 +143,7 @@ public class ArriendoConCuotas extends JPanel {
         ventana.add(this, BorderLayout.CENTER);
         ventana.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         ventana.setVisible(true);
-        ventana.setSize(1200, 500);
+        ventana.setSize(1120, 420);
         ventana.setResizable(false);
     }
 

@@ -3,7 +3,7 @@ package sumativa_4;
 import javax.swing.JFrame;
 
 import vista.Clientes;
-import controlador.Controlador;
+import controlador.ControladorVistaClientes;
 
 public class main {
 
@@ -12,7 +12,7 @@ public class main {
 	        JFrame ventana = new JFrame("Agregar Cliente");
 	        Clientes vista = new Clientes();
 	        vista.crearGUI(ventana);
-	        new Controlador(vista);
+	        new ControladorVistaClientes(vista);
 	    }
 
 

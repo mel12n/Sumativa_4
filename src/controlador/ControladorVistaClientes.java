@@ -9,13 +9,13 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class Controlador {
+public class ControladorVistaClientes {
 	// Atributos
 	private Clientes agregarCliente;
 	private ArrayList<Cliente> listaClientes = new ArrayList<>();
 	
 	// Constructor
-	public Controlador(Clientes pAgregarCliente) {
+	public ControladorVistaClientes(Clientes pAgregarCliente) {
 		this.agregarCliente = pAgregarCliente;
 				
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
