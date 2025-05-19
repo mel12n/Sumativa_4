@@ -65,7 +65,7 @@ public class ControladorVistaArriendo {
 			vista.getComboClientes().addItem(cliente.getCedula());
 		}
 
-		for (Automoviles automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
+		for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
 			vista.getComboAutos().addItem(automovil.getPatente());
 		}
     }
@@ -93,8 +93,8 @@ public class ControladorVistaArriendo {
             }
         }
 
-        Automoviles objetoAutomovil = null;
-        for (Automoviles automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
+        Automovil objetoAutomovil = null;
+        for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
             if (automovil.getPatente().equals(nuevoAutomovil)) {
                 objetoAutomovil = automovil;
                 break;
