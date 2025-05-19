@@ -1,26 +1,45 @@
 package controlador;
 
 import vista.Clientes;
-import sumativa_4.Cliente;
-import sumativa_4.DatoInvalidoException;
-import sumativa_4.GuardarDocumento;
+import sumativa_4.*;
+
 
 import java.awt.Window;
 import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
-import sumativa_4.AbrirDocumento;
+
+
 
 public class ControladorVistaClientes {
 	// Atributos
 	private Clientes agregarCliente;
+<<<<<<< HEAD
+=======
+	private ControladorInterfacePrincipal controladorInterfacePrincipal;
+	private ArrayList<Cliente> listaClientes;
+	private ArrayList<Automovil> listaAutomoviles;
+	private ArrayList<Arriendo> listaArriendos;
+	
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
 	
 	// Constructor
-	public ControladorVistaClientes(Clientes pAgregarCliente) {
+	public ControladorVistaClientes(Clientes pAgregarCliente, ControladorInterfacePrincipal pControlador) {
+	    this.agregarCliente = pAgregarCliente;
+	    this.controladorInterfacePrincipal = pControlador;
+	    this.listaClientes = pControlador.getListaClientes(); // ← Todo bien ahora
+	
 		
+<<<<<<< HEAD
 		this.agregarCliente = pAgregarCliente;
                     
+=======
+		//AbrirDocumento abrirDocumento = new AbrirDocumento(null, null, null);
+        //listaClientes = ControladorInterfacePrincipal.getListaClientes();
+        
+                     
+>>>>>>> branch 'master' of https://github.com/mel12n/Sumativa_4
         // acciones del botón agregar
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
 			String nombre = agregarCliente.getTxtNombre().getText();

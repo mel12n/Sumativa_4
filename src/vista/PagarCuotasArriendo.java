@@ -1,5 +1,6 @@
 package vista;
 
+import controlador.ControladorVistaPagarCuotasArriendo;
 import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -22,7 +23,6 @@ public class PagarCuotasArriendo extends JPanel {
     public PagarCuotasArriendo() {
         setLayout(null);
         setBackground(new Color(250, 245, 240));
-
         inicializarComponentes();
     }
 
@@ -91,6 +91,31 @@ public class PagarCuotasArriendo extends JPanel {
         add(btnRealizarPago);
     }
 
+    // Getters para componentes
+    public JComboBox<String> getCmbClientes() {
+        return cmbClientes;
+    }
+
+    public JList<String> getLstArriendos() {
+        return lstArriendos;
+    }
+
+    public JTable getTblCuotas() {
+        return tblCuotas;
+    }
+
+    public JButton getBtnMostrarPagos() {
+        return btnMostrarPagos;
+    }
+
+    public JButton getBtnRealizarPago() {
+        return btnRealizarPago;
+    }
+
+    public JCheckBox[] getChkSelec() {
+        return chkSelec;
+    }
+
     public void crearGUI(JFrame frame) {
         frame.setTitle("Pagar Cuotas Arriendos");
         frame.setSize(920, 380);
@@ -103,8 +128,11 @@ public class PagarCuotasArriendo extends JPanel {
 
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
-            JFrame f = new JFrame();
-            new PagarCuotasArriendo().crearGUI(f);
+            PagarCuotasArriendo view = new PagarCuotasArriendo();
+            JFrame frame = new JFrame();
+            view.crearGUI(frame);
+            // Asociar el controlador a la vista
+            new ControladorVistaPagarCuotasArriendo(view);
         });
     }
 }
