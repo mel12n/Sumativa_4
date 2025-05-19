@@ -1,10 +1,12 @@
 package sumativa_4;
 
-public class Automovil {
+import java.io.Serializable;
+
+public class Automovil implements Serializable {
 
 	
 	// atributos
-	
+	private static final long serialVersionUID = 1L; // para serializar
 	private String patente;
 	private String marca;
 	private String modelo;

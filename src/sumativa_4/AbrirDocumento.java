@@ -20,7 +20,7 @@ public class AbrirDocumento {
 		this.listaClientes = pListaClientes;
 		this.listaArriendos = pListaArriendos;
 		this.listaAutomoviles = pListaAutomoviles;
-		cargarListaClientes();
+		//cargarListaClientes();
 		//cargarListaArriendos();
 		//cargarListaAutomoviles();
 	}

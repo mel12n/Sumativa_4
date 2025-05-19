@@ -17,9 +17,7 @@ public class ControladorVistaClientes {
     private Clientes agregarCliente;
     private ControladorInterfacePrincipal controladorInterfacePrincipal;
     private ArrayList<Cliente> listaClientes;
-    private ArrayList<Automovil> listaAutomoviles;
-    private ArrayList<Arriendo> listaArriendos;
-
+    
 
     // Constructor
     public ControladorVistaClientes(Clientes pAgregarCliente, ControladorInterfacePrincipal pControlador) {
@@ -56,7 +54,7 @@ public class ControladorVistaClientes {
                     window.dispose(); // Cierra la ventana actual
                 }
                 for (Cliente cli : listaClientes) { 
-                    System.out.println("Cliente: "+ cli); // Borrar
+                    System.out.println("Cliente: "+ cli); // Para depuración
                 }
             } catch (DatoInvalidoException e1) {
                 // Mostrar mensaje de error con los detalles de la validación
