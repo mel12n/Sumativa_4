@@ -4,6 +4,9 @@ import vista.*;
 import sumativa_4.*;
 
 import javax.swing.*;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class ControladorInterfacePrincipal {
@@ -26,7 +29,7 @@ public class ControladorInterfacePrincipal {
             JFrame ventana = new JFrame("Arriendos con Cuotas");
             ArriendoConCuotas vistaArriendo = new ArriendoConCuotas();
             vistaArriendo.crearGUI(ventana);
-            new ControladorVistaArriendo(vistaArriendo);
+            ControladorVistaArriendo controlador = new ControladorVistaArriendo(vistaArriendo, this);
         });
 
         // Botón Clientes
@@ -41,10 +44,23 @@ public class ControladorInterfacePrincipal {
         });
 
         // Botón Autos
-        vista.getBtnAutos().addActionListener(e -> {
-            JFrame ventana = new JFrame("Automóviles");
-            JOptionPane.showMessageDialog(vista, "Función aún no implementada");
-        });
+        
+        // Botón Pagar Cuotas
+        vista.getBtnPagarCuotasArriendo().addActionListener(e -> {
+			JFrame ventana = new JFrame("Pagar Cuotas");
+			PagarCuotasArriendo vistaPagarCuotas = new PagarCuotasArriendo();
+			vistaPagarCuotas.crearGUI(ventana);
+			ControladorVistaPagarCuotasArriendo controlador = new ControladorVistaPagarCuotasArriendo(vistaPagarCuotas);
+			ventana.setLocationRelativeTo(null);
+		});
+        /*SwingUtilities.invokeLater(() -> {
+            PagarCuotasArriendo view = new PagarCuotasArriendo();
+            JFrame frame = new JFrame();
+            view.crearGUI(frame);
+            // Asociar el controlador a la vista
+            new ControladorVistaPagarCuotasArriendo(view);
+        });*/
+        
     }
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;

@@ -6,7 +6,7 @@ import java.awt.*;
 public class InterfacePrincipal extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    private JButton btnArriendos, btnClientes, btnAutos, btnVehiculos;
+    private JButton btnArriendos, btnClientes, btnPagarCuotasArriendo, btnVehiculos;
     private JLabel lblTitulo;
 
     public InterfacePrincipal() {
@@ -25,11 +25,11 @@ public class InterfacePrincipal extends JPanel {
         btnArriendos.setBounds(380, 120, 250, 50);
         add(btnArriendos);
 
-        // Botón Autos
-        btnAutos = new JButton("Pagar Cuotas de Arriendo");
-        btnAutos.setFont(new Font("Arial", Font.PLAIN, 16));
-        btnAutos.setBounds(380, 200, 250, 50);
-        add(btnAutos);
+        // Botón pagar cuotas arriendo
+        btnPagarCuotasArriendo = new JButton("Pagar Cuotas de Arriendo");
+        btnPagarCuotasArriendo.setFont(new Font("Arial", Font.PLAIN, 16));
+        btnPagarCuotasArriendo.setBounds(380, 200, 250, 50);
+        add(btnPagarCuotasArriendo);
 
         // Botón Clientes
         btnClientes = new JButton("Agregar Clientes");
@@ -52,8 +52,8 @@ public class InterfacePrincipal extends JPanel {
         return btnClientes;
     }
 
-    public JButton getBtnAutos() {
-        return btnAutos;
+    public JButton getBtnPagarCuotasArriendo() {
+        return btnPagarCuotasArriendo;
     }
 
     public JButton getBtnVehiculos() {

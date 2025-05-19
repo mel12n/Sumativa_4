@@ -29,11 +29,12 @@ public class ControladorVistaArriendo {
 		});
         
         vista.getBtnNuevoCliente().addActionListener(e -> {
-        	JFrame ventana = new JFrame("Agregar Cliente");
-	        Clientes vistaClientes = new Clientes();
-	        vistaClientes.crearGUI(ventana);
-	        ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes);
-	        ventana.setLocationRelativeTo(null); // Centra la ventana
+        	JFrame ventana = new JFrame("Clientes");
+            Clientes vistaClientes = new Clientes();
+            vistaClientes.crearGUI(ventana);      
+            ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes, controladorInterfacePrincipal);
+            
+            ventana.setLocationRelativeTo(null);
 	        
         });
     
