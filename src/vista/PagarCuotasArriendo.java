@@ -120,7 +120,7 @@ public class PagarCuotasArriendo extends JPanel {
         frame.setTitle("Pagar Cuotas Arriendos");
         frame.setSize(920, 380);
         frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         frame.getContentPane().add(this);
         frame.setResizable(false);
         frame.setVisible(true);

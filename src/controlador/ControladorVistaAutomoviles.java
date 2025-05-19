@@ -62,6 +62,7 @@ public class ControladorVistaAutomoviles {
 
     public void agregarAutomovil(Automovil automovil) {
         listaAutomoviles.add(automovil);
+        controladorInterfacePrincipal.setListaAutomoviles(listaAutomoviles);
         GuardarDocumento guardarDocumento = new GuardarDocumento(null, null, null);
         guardarDocumento.guardarAutomovil(listaAutomoviles);
     }
