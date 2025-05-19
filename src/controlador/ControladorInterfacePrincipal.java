@@ -44,6 +44,15 @@ public class ControladorInterfacePrincipal {
         });
 
         // Botón Autos
+        vista.getBtnVehiculos().addActionListener(e -> {
+			JFrame ventana = new JFrame("Automoviles");
+			Automoviles vistaAutos = new Automoviles();
+			vistaAutos.crearGUI(ventana);
+			ControladorVistaAutomoviles controlador = new ControladorVistaAutomoviles(vistaAutos, this);
+			
+			ventana.setLocationRelativeTo(null);
+			//ventana.setVisible(true); // Para mostrar la ventana
+		});
         
         // Botón Pagar Cuotas
         vista.getBtnPagarCuotasArriendo().addActionListener(e -> {
