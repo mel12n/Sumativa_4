@@ -69,9 +69,9 @@ public class ControladorVistaClientes {
 
     public void agregarCliente(Cliente cliente) {
         listaClientes.add(cliente);
+        controladorInterfacePrincipal.setListaClientes(listaClientes);
         GuardarDocumento guardarDocumento = new GuardarDocumento(null, null, null);
         guardarDocumento.guardarCliente(listaClientes);
-
     }
 
 }
