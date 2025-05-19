@@ -1,7 +1,8 @@
 package sumativa_4;
-
-public class Arriendo {
-	
+import java.io.Serializable;
+public class Arriendo implements Serializable{
+	 private static final long serialVersionUID = 1L;
+	 
 	// Atributos
 	private int numArriendo;
 	private String fechaArriendo; 

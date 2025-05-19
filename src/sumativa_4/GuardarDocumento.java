@@ -12,13 +12,13 @@ public class GuardarDocumento implements Serializable {
 	// Atributos
 	private static final long serialVersionUID = 1L;
 	private ArrayList<Cliente> listaClientes;
-	private ArrayList<Arriendo> listaArriendos;
+	private ArrayList<ArriendoCuota> listaArriendos;
 	private ArrayList<Automovil> listaAutomoviles;
 	
 	//private Cliente agregarCliente;
 	
 	// Constructor
-	public GuardarDocumento(ArrayList<Cliente> pListaClientes, ArrayList<Arriendo> pListaArriendos, ArrayList<Automovil> pListaAutomoviles) {
+	public GuardarDocumento(ArrayList<Cliente> pListaClientes, ArrayList<ArriendoCuota> pListaArriendos, ArrayList<Automovil> pListaAutomoviles) {
 		this.listaClientes = pListaClientes;
 		this.listaArriendos = pListaArriendos;
 		this.listaAutomoviles = pListaAutomoviles;
@@ -28,7 +28,7 @@ public class GuardarDocumento implements Serializable {
 	public void setListaClientes(ArrayList<Cliente> pListaClientes) {
 		this.listaClientes = pListaClientes;
 	}
-	public void setListaArriendos(ArrayList<Arriendo> pCuotas) {
+	public void setListaArriendos(ArrayList<ArriendoCuota> pCuotas) {
 		this.listaArriendos = pCuotas;
 	}
 	public void setListaAutomoviles(ArrayList<Automovil> pListaAutomoviles) {
@@ -39,7 +39,7 @@ public class GuardarDocumento implements Serializable {
 	public ArrayList<Cliente> getListaClientes() {
 		return this.listaClientes;
 	}
-	public ArrayList<Arriendo> getListaArriendos() {
+	public ArrayList<ArriendoCuota> getListaArriendos() {
 		return this.listaArriendos;
 	}
 	public ArrayList<Automovil> getListaAutomoviles() {
@@ -60,7 +60,7 @@ public class GuardarDocumento implements Serializable {
 		}
 		//return listaClientes;
 	}
-	public void guardarArriendo(ArrayList<Arriendo> listaArriendos2) {
+	public void guardarArriendo(ArrayList<ArriendoCuota> listaArriendos2) {
 		//listaArriendos.add(arriendo);
 		try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("arriendos.dat"))) {
 			out.writeObject(listaArriendos2); 

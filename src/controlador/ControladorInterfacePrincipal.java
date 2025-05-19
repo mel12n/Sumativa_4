@@ -13,7 +13,7 @@ public class ControladorInterfacePrincipal {
 
     private InterfacePrincipal vista;
     private ArrayList<Cliente> listaClientes;
-    private ArrayList<Arriendo> listaArriendos;
+    private ArrayList<ArriendoCuota> listaArriendos;
     private ArrayList<Automovil> listaAutomoviles;
 
     public ControladorInterfacePrincipal(InterfacePrincipal vista) {
@@ -75,7 +75,7 @@ public class ControladorInterfacePrincipal {
     public void setListaClientes(ArrayList<Cliente> listaClientes) {
 		this.listaClientes = listaClientes;
 	}
-    public void setListaArriendos(ArrayList<Arriendo> listaArriendos) {
+    public void setListaArriendos(ArrayList<ArriendoCuota> listaArriendos) {
     	this.listaArriendos = listaArriendos;
     }
     public void setListaAutomoviles(ArrayList<Automovil> listaAutomoviles) {
@@ -84,7 +84,7 @@ public class ControladorInterfacePrincipal {
     public ArrayList<Cliente> getListaClientes() {
     	return listaClientes;
     }
-    public ArrayList<Arriendo> getListaArriendos() {
+    public ArrayList<ArriendoCuota> getListaArriendos() {
 		return listaArriendos;
 	}
     public ArrayList<Automovil> getListaAutomoviles() {

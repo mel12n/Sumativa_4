@@ -1,14 +1,16 @@
 package sumativa_4;
 
 import java.util.ArrayList;
+import java.io.Serializable;
 
 
-public class ArriendoCuota extends Arriendo {
+public class ArriendoCuota extends Arriendo implements Serializable{
 	
 	// atributos
 	private int cantidadCuotas;
 	private ArrayList<CuotaArriendo> cuotas; // en que casos es Final?
-	
+	private static final long serialVersionUID = 1L;
+
 	// constructor
 	
 	public ArriendoCuota(int pNumArriendo, String pFecArr, int pDiasArriendo, Cliente pCliente, Automovil pAutomovil, int pCantidadCuotas) {

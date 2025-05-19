@@ -1,6 +1,8 @@
 package sumativa_4;
-
-public class CuotaArriendo {
+import java.io.Serializable;
+public class CuotaArriendo implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
 	
 	// Atributos
 	

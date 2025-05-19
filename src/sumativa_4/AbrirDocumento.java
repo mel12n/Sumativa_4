@@ -10,12 +10,12 @@ public class AbrirDocumento {
 	// Atributos
 	
 	private ArrayList<Cliente> listaClientes;
-	private ArrayList<Arriendo> listaArriendos;
+	private ArrayList<ArriendoCuota> listaArriendos;
 	private ArrayList<Automovil> listaAutomoviles;// en que casos es Final?
 	
 	// Constructor
 	
-	public AbrirDocumento(ArrayList<Cliente> pListaClientes, ArrayList<Arriendo> pListaArriendos, ArrayList<Automovil> pListaAutomoviles) {
+	public AbrirDocumento(ArrayList<Cliente> pListaClientes, ArrayList<ArriendoCuota> pListaArriendos, ArrayList<Automovil> pListaAutomoviles) {
 		
 		this.listaClientes = pListaClientes;
 		this.listaArriendos = pListaArriendos;
@@ -28,7 +28,7 @@ public class AbrirDocumento {
 	public void setListaClientes(ArrayList<Cliente> pListaClientes) {
 		this.listaClientes = pListaClientes;
 	}
-	public void setListaArriendos(ArrayList<Arriendo> pCuotas) {
+	public void setListaArriendos(ArrayList<ArriendoCuota> pCuotas) {
 		this.listaArriendos = pCuotas;
 	}
 	public void setListaAutomoviles(ArrayList<Automovil> pListaAutomoviles) {
@@ -40,7 +40,7 @@ public class AbrirDocumento {
 		return this.listaClientes;
 	}
 	
-	public ArrayList<Arriendo> getListaArriendos() {
+	public ArrayList<ArriendoCuota> getListaArriendos() {
 		return this.listaArriendos;
 	}
 	public ArrayList<Automovil> getListaAutomoviles() {
@@ -59,11 +59,12 @@ public class AbrirDocumento {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public ArrayList<Arriendo> cargarListaArriendos() {
+	public ArrayList<ArriendoCuota> cargarListaArriendos() {
 		try (ObjectInputStream in = new ObjectInputStream(new FileInputStream("arriendos.dat"))) {
-			setListaArriendos((ArrayList<Arriendo>) in.readObject());//listaClientes.setListaClientes() = (ArrayList<Cliente>) in.readObject();
+			setListaArriendos((ArrayList<ArriendoCuota>) in.readObject());//listaClientes.setListaClientes() = (ArrayList<Cliente>) in.readObject();
 		} catch (IOException | ClassNotFoundException e) {
-			setListaArriendos(new ArrayList<>()); // Inicializa lista vacía si el archivo no existe
+			//setListaArriendos(new ArrayList<>()); // Inicializa lista vacía si el archivo no existe
+			System.out.println("No se pudo cargar la lista de arriendos. Se inicializa una lista vacía."+e.getMessage());
 		}
 		return listaArriendos;
 	}

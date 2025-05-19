@@ -14,6 +14,7 @@ public class ControladorVistaArriendo {
     private ArriendoConCuotas vista;
     private ControladorInterfacePrincipal controladorInterfacePrincipal;
     private ControladorVistaClientes controladorVistaClientes;
+    
 
     public ControladorVistaArriendo(ArriendoConCuotas vista, ControladorInterfacePrincipal controladorInterfacePrincipal) {
         this.vista = vista;
@@ -23,6 +24,7 @@ public class ControladorVistaArriendo {
         vista.getBtnGuardar().addActionListener(e -> {
 			try {
 				guardarArriendo();
+				
 			} catch (DatoInvalidoException ex) {
 				JOptionPane.showMessageDialog(vista, "Error al guardar el arriendo: " + ex.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
 			}
@@ -111,12 +113,15 @@ public class ControladorVistaArriendo {
         );
 
         if (!nuevoArriendo.ingresarArriendoConCuota(precioPorDia, objetoCliente, objetoAutomovil)) {
-            throw new DatoInvalidoException("Número de cuota inválido. Debe ser entre 1 y 6.");
+            throw new DatoInvalidoException("Cliente o automovil no disponible.");
         }
 
         controladorInterfacePrincipal.getListaArriendos().add(nuevoArriendo);
+        agregarArriendoArray(nuevoArriendo);
         mostrarCuotasEnTabla(nuevoArriendo);
         this.arriendoCuota = nuevoArriendo;
+        System.out.println("Arriendo guardado: " + nuevoArriendo); // Para depuración
+        
         
     }
 
@@ -164,7 +169,10 @@ public class ControladorVistaArriendo {
 			return controladorInterfacePrincipal.getListaArriendos().get(controladorInterfacePrincipal.getListaArriendos().size() - 1).getNumArriendo() + 1;
 		}
 	}
-
+    public void agregarArriendoArray(ArriendoCuota arriendo) {
+        GuardarDocumento guardarDocumento = new GuardarDocumento(null, null, null);
+        guardarDocumento.guardarArriendo(controladorInterfacePrincipal.getListaArriendos());
+    }
 
 }
 
