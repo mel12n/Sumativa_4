@@ -30,6 +30,7 @@ public class ControladorInterfacePrincipal {
             ArriendoConCuotas vistaArriendo = new ArriendoConCuotas();
             vistaArriendo.crearGUI(ventana);
             ControladorVistaArriendo controlador = new ControladorVistaArriendo(vistaArriendo, this);
+            ventana.setLocationRelativeTo(null);
         });
 
         // Botón Clientes

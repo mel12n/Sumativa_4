@@ -33,9 +33,16 @@ public class ControladorVistaArriendo {
             Clientes vistaClientes = new Clientes();
             vistaClientes.crearGUI(ventana);      
             ControladorVistaClientes controlador = new ControladorVistaClientes(vistaClientes, controladorInterfacePrincipal);
-            
             ventana.setLocationRelativeTo(null);
-	        
+            // Agrega un WindowListener para detectar el cierre
+            ventana.addWindowListener(new java.awt.event.WindowAdapter() {
+                @Override
+                public void windowClosed(java.awt.event.WindowEvent e) {
+                    // Aquí pones lo que quieras hacer al cerrar la ventana
+                	cargarDatos();
+                }
+            });
+            cargarDatos();
         });
     
     	vista.getBtnPagar().addActionListener(e -> {
@@ -59,15 +66,9 @@ public class ControladorVistaArriendo {
             public void removeUpdate(DocumentEvent e) { calcularMonto(); }
             public void changedUpdate(DocumentEvent e) { calcularMonto(); }
         });
-    
+        cargarDatos();
         // Cargar clientes y autos en los JComboBox
-        for (Cliente cliente : controladorInterfacePrincipal.getListaClientes()) {
-			vista.getComboClientes().addItem(cliente.getCedula());
-		}
-
-		for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
-			vista.getComboAutos().addItem(automovil.getPatente());
-		}
+        
     }
     
     private void guardarArriendo() throws DatoInvalidoException {
@@ -116,9 +117,22 @@ public class ControladorVistaArriendo {
         controladorInterfacePrincipal.getListaArriendos().add(nuevoArriendo);
         mostrarCuotasEnTabla(nuevoArriendo);
         this.arriendoCuota = nuevoArriendo;
+        
     }
 
-    
+    public void cargarDatos() {
+    	vista.getComboClientes().removeAllItems();
+        vista.getComboAutos().removeAllItems();
+        vista.getComboClientes().addItem("Seleccione CLIENTE");
+        vista.getComboAutos().addItem("Seleccione AUTOMÓVIL");
+    	for (Cliente cliente : controladorInterfacePrincipal.getListaClientes()) {
+    		vista.getComboClientes().addItem(cliente.getCedula());
+    	}
+
+    	for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
+    		vista.getComboAutos().addItem(automovil.getPatente());
+    	}
+    }
     private void mostrarCuotasEnTabla(ArriendoCuota arriendo) {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaCuotas().getModel();
         modelo.setRowCount(0); // Limpia la tabla
