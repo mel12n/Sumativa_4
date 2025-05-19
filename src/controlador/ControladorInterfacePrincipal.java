@@ -4,9 +4,6 @@ import vista.*;
 import sumativa_4.*;
 
 import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 public class ControladorInterfacePrincipal {

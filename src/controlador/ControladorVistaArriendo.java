@@ -2,7 +2,6 @@ package controlador;
 
 import vista.*;
 import sumativa_4.*;
-
 import javax.swing.*;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
@@ -11,17 +10,14 @@ import java.util.ArrayList;
 
 public class ControladorVistaArriendo {
 
-	private Cliente cliente;
 	private ArriendoCuota arriendoCuota;
-	private Automovil automovil;
     private ArriendoConCuotas vista;
-    
+    private ControladorInterfacePrincipal controladorInterfacePrincipal;
+    private ControladorVistaClientes controladorVistaClientes;
 
-    public ControladorVistaArriendo(ArriendoConCuotas vista) {
+    public ControladorVistaArriendo(ArriendoConCuotas vista, ControladorInterfacePrincipal controladorInterfacePrincipal) {
         this.vista = vista;
-        
-
-        //Acá cargar clientes, vehiculos y arriendos
+        this.controladorInterfacePrincipal = controladorInterfacePrincipal;
         
         //Botones
         vista.getBtnGuardar().addActionListener(e -> {
@@ -62,28 +58,65 @@ public class ControladorVistaArriendo {
             public void removeUpdate(DocumentEvent e) { calcularMonto(); }
             public void changedUpdate(DocumentEvent e) { calcularMonto(); }
         });
+    
+        // Cargar clientes y autos en los JComboBox
+        for (Cliente cliente : controladorInterfacePrincipal.getListaClientes()) {
+			vista.getComboClientes().addItem(cliente.getCedula());
+		}
+
+		for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
+			vista.getComboAutos().addItem(automovil.getPatente());
+		}
+    }
+    
+    private void guardarArriendo() throws DatoInvalidoException {
+        if (vista.getTxtFecha().getText().isEmpty() || 
+            vista.getTxtDias().getText().isEmpty() || 
+            vista.getTxtPrecioDia().getText().isEmpty()) {
+            throw new DatoInvalidoException("Los campos no pueden estar vacíos.");
+        }
+
+        String fechaArriendo = vista.getTxtFecha().getText();
+        int diasArriendo = Integer.parseInt(vista.getTxtDias().getText());
+        int precioPorDia = Integer.parseInt(vista.getTxtPrecioDia().getText());
+        int cantidadCuotas = Integer.parseInt(vista.getTxtCuotas().getText());
+        int numArriendo = obtenerUltimoIdArriendo();
+        String nuevoCliente = (String) vista.getComboClientes().getSelectedItem();
+        String nuevoAutomovil = (String) vista.getComboAutos().getSelectedItem();
+
+        Cliente objetoCliente = null;
+        for (Cliente cliente : controladorInterfacePrincipal.getListaClientes()) {
+            if (cliente.getCedula().equals(nuevoCliente)) {
+                objetoCliente = cliente;
+                break;
+            }
+        }
+
+        Automovil objetoAutomovil = null;
+        for (Automovil automovil : controladorInterfacePrincipal.getListaAutomoviles()) {
+            if (automovil.getPatente().equals(nuevoAutomovil)) {
+                objetoAutomovil = automovil;
+                break;
+            }
+        }
+
+        if (objetoCliente == null || objetoAutomovil == null) {
+            throw new DatoInvalidoException("Cliente o Automóvil no encontrado.");
+        }
+
+        ArriendoCuota nuevoArriendo = new ArriendoCuota(
+            numArriendo, fechaArriendo, diasArriendo, objetoCliente, objetoAutomovil, cantidadCuotas
+        );
+
+        if (!nuevoArriendo.ingresarArriendoConCuota(precioPorDia, objetoCliente, objetoAutomovil)) {
+            throw new DatoInvalidoException("Número de cuota inválido. Debe ser entre 1 y 6.");
+        }
+
+        controladorInterfacePrincipal.getListaArriendos().add(nuevoArriendo);
+        mostrarCuotasEnTabla(nuevoArriendo);
+        this.arriendoCuota = nuevoArriendo;
     }
 
-    private void guardarArriendo() throws DatoInvalidoException {
-    	if (vista.getTxtFecha().getText().isEmpty() || vista.getTxtDias().getText().isEmpty() || vista.getTxtPrecioDia().getText().isEmpty()) {
-			throw new DatoInvalidoException("Los campos no pueden estar vacíos.");
-		}
-    	String fechaArriendo = vista.getTxtFecha().getText();
-    	int diasArriendo = Integer.parseInt(vista.getTxtDias().getText());
-    	int precioPorDia = Integer.parseInt(vista.getTxtPrecioDia().getText());
-    	int cantidadCuotas = Integer.parseInt(vista.getTxtCuotas().getText());
-    	Cliente nuevoCliente = (Cliente) vista.getComboClientes().getSelectedItem();
-    	Automovil nuevoAutomovil = (Automovil) vista.getComboAutos().getSelectedItem();
-    	ArriendoCuota nuevoArriendo = new ArriendoCuota(1,fechaArriendo,diasArriendo,nuevoCliente,nuevoAutomovil,cantidadCuotas);
-    	
-    	if (!nuevoArriendo.ingresarArriendoConCuota(precioPorDia, nuevoCliente, nuevoAutomovil)) {
-    		throw new DatoInvalidoException("Número de cuota inválido. Debe ser entre 1 y 6.");
-    	} 
-    	//Aquí se debe agregar el arriendo al arreglo arriendos.
-    	mostrarCuotasEnTabla(nuevoArriendo);
-    	this.arriendoCuota = nuevoArriendo;
-    	 //Esto nos permite guardar el ultimo arriendo que se guardó
-    }
     
     private void mostrarCuotasEnTabla(ArriendoCuota arriendo) {
         DefaultTableModel modelo = (DefaultTableModel) vista.getTablaCuotas().getModel();
@@ -109,6 +142,13 @@ public class ControladorVistaArriendo {
             vista.getTxtMontoTotal().setText("$0"); // limpia si hay datos inválidos
         }
     }
+    private int obtenerUltimoIdArriendo() {
+		if (controladorInterfacePrincipal.getListaArriendos().isEmpty()) {
+			return 1; // Si no hay arriendos, el primer ID es 1
+		} else {
+			return controladorInterfacePrincipal.getListaArriendos().get(controladorInterfacePrincipal.getListaArriendos().size() - 1).getNumArriendo() + 1;
+		}
+	}
 
 
 }

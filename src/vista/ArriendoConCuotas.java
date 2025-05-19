@@ -4,6 +4,9 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import sumativa_4.Automovil;
+import sumativa_4.Cliente;
+
 public class ArriendoConCuotas extends JPanel {
     
 	private static final long serialVersionUID = 1L;
@@ -71,15 +74,16 @@ public class ArriendoConCuotas extends JPanel {
         txtMontoTotal.setText("$0");
         add(txtMontoTotal);
 
-        comboClientes = new JComboBox<>(new String[]{"Seleccione CLIENTE"});
+        comboClientes = new JComboBox<>(); 
         comboClientes.setBounds(100, 70, 250, 30);
         comboClientes.setBackground(Color.WHITE);
         add(comboClientes);
-        
-        comboAutos = new JComboBox<>(new String[]{"Seleccione AUTOMOVIL"});
+
+        comboAutos = new JComboBox<>(); 
         comboAutos.setBounds(420, 70, 250, 30);
-        comboClientes.setBackground(Color.WHITE);
+        comboAutos.setBackground(Color.WHITE);
         add(comboAutos);
+
 
         btnNuevoCliente = new JButton("Ingresar nuevo Cliente");
         btnNuevoCliente.setBounds(140, 110, 180, 30);
@@ -120,9 +124,11 @@ public class ArriendoConCuotas extends JPanel {
     public JComboBox<String> getComboClientes() {
         return comboClientes;
     }
+
     public JComboBox<String> getComboAutos() {
         return comboAutos;
     }
+
 
     public JTable getTablaCuotas() {
         return tablaCuotas;

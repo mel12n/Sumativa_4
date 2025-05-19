@@ -15,24 +15,18 @@ import sumativa_4.AbrirDocumento;
 public class ControladorVistaClientes {
 	// Atributos
 	private Clientes agregarCliente;
-	//private AbrirDocumento abrirDocumento;
-	private ArrayList<Cliente> listaClientes;
-	//private GuardarDocumento guardarDocumento;
 	
 	// Constructor
 	public ControladorVistaClientes(Clientes pAgregarCliente) {
 		
 		this.agregarCliente = pAgregarCliente;
-		
-		AbrirDocumento abrirDocumento = new AbrirDocumento(null, null, null);
-        listaClientes = abrirDocumento.getListaClientes();
                     
         // acciones del botón agregar
 		agregarCliente.getBtnAgregar().addActionListener(e -> {
 			String nombre = agregarCliente.getTxtNombre().getText();
 			String cedula = agregarCliente.getTxtCedula().getText();
 			
-			for (Cliente cliente : listaClientes) {
+			for (Cliente cliente : ) {
 				if (cliente.getCedula().equals(cedula)) {
 					Boolean estado = cliente.getVigencia();
 					String vigente = String.valueOf(estado);
